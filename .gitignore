@@ -26,3 +26,17 @@ runs/
 /garbages/
 /flagged/
 /experimental/
+
+# python virtual environments
+.venv/
+venv/
+env/
+
+# generated audio / outputs (keep locally, don't commit)
+/output/
+examples/target/
+# personal test source clips (the committed example sources stay tracked)
+examples/source/VO_*.wav
+
+# local-only scripts / scratch
+rt_benchmark.py

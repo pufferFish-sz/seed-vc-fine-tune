@@ -34,6 +34,70 @@ For Windows users, you may consider install `triton-windows` to enable `--compil
 pip install triton-windows==3.2.0.post13
 ```
 
+### Local setup (verified on Windows, RTX 3060, Python 3.10) 🧪
+The `requirements.txt` cannot be installed verbatim (lines 1-3 put pip global flags such as
+`--pre`/`--index-url` on per-requirement lines, which pip/uv reject, and they also conflict with the
+pinned `torch==2.4.0` below). The steps below create a working environment named **`.venv`** in the
+project root. We use [`uv`](https://github.com/astral-sh/uv) only as a fast installer, on top of a normal
+**python.org Python 3.10**.
+
+> Important (Windows): create the venv from a regular **python.org** Python install, *not* from uv's
+> managed "standalone" Python (`uv python install` + `uv venv`). On some Windows machines the standalone
+> interpreter intermittently fails to launch from its `AppData\Roaming\uv\python\...` location (antivirus
+> scanning freshly-extracted binaries), producing errors like `No Python at '...python.exe'` or
+> `Fatal Python error: init_fs_encoding ... No module named 'encodings'`. A python.org install lives in a
+> stable, trusted location and uses the standard Windows venv launcher, which avoids all of this.
+
+```powershell
+# 1. Install a normal Python 3.10 (python.org build) and create the venv from IT
+winget install --id Python.Python.3.10 -e --scope user --accept-package-agreements --accept-source-agreements
+& "$env:LOCALAPPDATA\Programs\Python\Python310\python.exe" -m venv .venv
+
+# 2. Install the CUDA build of the pinned torch stack (CUDA 12.1, works on RTX 30xx)
+$env:VIRTUAL_ENV = (Resolve-Path .venv).Path
+uv pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121
+
+# 3. Install the remaining dependencies from PyPI
+uv pip install accelerate scipy==1.13.1 librosa==0.10.2 "huggingface-hub>=0.28.1" munch==4.0.0 `
+  einops==0.8.0 descript-audio-codec==1.0.0 gradio==5.23.0 pydub==0.25.1 resemblyzer jiwer==3.0.3 `
+  transformers==4.46.3 FreeSimpleGUI==5.1.1 soundfile==0.12.1 sounddevice==0.5.0 modelscope==1.18.1 `
+  funasr==1.1.5 numpy==1.26.4 hydra-core==1.3.2 pyyaml python-dotenv
+
+# 4. Pin setuptools < 81 so pkg_resources stays available (webrtcvad/resemblyzer need it)
+uv pip install "setuptools<81"
+```
+(If you don't have `uv`, replace `uv pip install` with `.\.venv\Scripts\python.exe -m pip install`.)
+
+### Run a voice conversion test 🔊
+The model checkpoint is downloaded automatically from HuggingFace on first run. Run from the project root:
+
+```powershell
+# Activate the venv. If you get "running scripts is disabled on this system", allow signed scripts once:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+.\.venv\Scripts\activate
+
+# Convert: make the voice in --source sound like --target
+python inference.py --source examples\source\VO_Alpaca_idle_2.wav --target examples\target\VO_BatH_atk_2.wav --output .\output --diffusion-steps 30
+
+1. python inference.py --source examples\source\VO_BatH_atk_2.wav --target examples\target\VO_Alpaca_idle_2.wav --output .\output --diffusion-steps 50
+
+2. python inference.py --source examples\source\VO_ChameleonH_cheer_3.wav --target examples\target\VO_BatP_cheer_2.wav --output .\output --diffusion-steps 50
+
+3. python inference.py --source examples\source\VO_CthulhuFishH_rest_1.wav --target examples\target\VO_DeerH_atk_2.wav --output .\output --diffusion-steps 50
+
+4. python inference.py --source examples\source\VO_Fox_rest_3.wav --target examples\target\VO_DogElectric_cheer_1.wav --output .\output --diffusion-steps 50
+
+# Web UI instead
+python app_vc.py   # then open http://localhost:7860/
+```
+The converted audio is written to the `--output` folder (e.g.
+`output\vc_VO_DeerH_atk_2_VO_BatH_atk_2_1.0_30_0.7.wav`). You can also skip activation and call the venv
+python directly: `.\.venv\Scripts\python.exe inference.py ...`.
+
+> Notes: CUDA is used automatically when available (verify with
+> `.\.venv\Scripts\python.exe -c "import torch; print(torch.cuda.is_available())"`). `ffmpeg` is optional —
+> torchaudio loads WAV files without it; install it only if you need compressed formats such as mp3.
+
 ## Usage🛠️
 We have released 4 models for different purposes:
 
