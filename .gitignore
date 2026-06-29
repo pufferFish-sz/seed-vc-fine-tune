@@ -35,8 +35,15 @@ env/
 # generated audio / outputs (keep locally, don't commit)
 /output/
 examples/target/
-# personal test source clips (the committed example sources stay tracked)
-examples/source/VO_*.wav
+
+# never commit .wav files: model-generated audio (conversions, references) and
+# the large training datasets under data/. NOTE: the example .wav files already
+# committed stay tracked — git ignores .gitignore rules for tracked files.
+# To intentionally add a NEW source .wav: git add -f <file>
+*.wav
+
+# generated archives (e.g. batch-conversion result zips)
+*.zip
 
 # local-only scripts / scratch
 rt_benchmark.py

@@ -6,25 +6,27 @@ cosine of the angle between vectors (range -1..1; 1 = identical identity).
 This is the standard objective metric for "does the converted audio sound like
 the target speaker", used instead of / alongside subjective listening.
 
+The reference voice can be either a single clip (--ref) or the **centroid** of an
+entire folder of a character's clips (--ref-dir) -- the centroid (mean of the
+per-clip embeddings) represents the character's voice in general and is the
+rigorous target, equivalent to multi-utterance speaker enrollment.
+
 Encoders:
-  * campplus  - CAMPPlus speaker-verification model shipped with this repo.
-                Note: this is also the speaker encoder Seed-VC conditions timbre
-                on, so its scores are slightly optimistic for this model. Still a
-                valid, zero-setup measure of speaker identity.
-  * resemblyzer - independent GE2E speaker encoder (only if `resemblyzer` is
-                installed: `pip install resemblyzer`). Use for an unbiased
-                cross-check. Auto-skipped if not available.
+  * campplus    - CAMPPlus speaker-verification model shipped with this repo
+                  (also the encoder Seed-VC conditions timbre on -> slightly
+                  optimistic, but a valid, zero-setup identity measure).
+  * resemblyzer - independent GE2E speaker encoder (if installed). Unbiased
+                  cross-check. Auto-skipped if not available.
 
 Usage:
-  # before/after: how close are base vs fine-tuned outputs to the target voice?
-  python eval_similarity.py --ref data/Fox/VO_Fox_idle_1.wav \
-      --inputs output/base/vc_*.wav output/ft/vc_*.wav
-
-  # arbitrary set -> full pairwise matrix
-  python eval_similarity.py --inputs a.wav b.wav c.wav
+  python eval_similarity.py --ref-dir data/CthulhuFishH \
+      --inputs output/compare/base/vc_*.wav output/compare/ft/vc_*.wav
+  python eval_similarity.py --ref a.wav --inputs b.wav c.wav
+  python eval_similarity.py --inputs a.wav b.wav c.wav        # pairwise matrix
 """
 import os
 os.environ['HF_HUB_CACHE'] = './checkpoints/hf_cache'
+import glob
 import argparse
 import torch
 import torchaudio.compliance.kaldi as kaldi
@@ -74,56 +76,68 @@ def resemblyzer_embed(path, encoder):
     return torch.nn.functional.normalize(t, dim=-1)
 
 
+def centroid(paths, embed_fn):
+    """Mean of per-clip embeddings, renormalized -> a speaker 'enrollment' vector."""
+    embs = torch.stack([embed_fn(p) for p in paths], dim=0)
+    return torch.nn.functional.normalize(embs.mean(dim=0), dim=-1)
+
+
 def cos(a, b):
     return float(torch.dot(a, b).clamp(-1, 1))
 
 
-def report(embs, ref, inputs, encoder_name):
-    print(f"\n=== SECS via {encoder_name} ===")
-    if ref:
-        print(f"Cosine similarity vs reference  [{os.path.basename(ref)}]")
-        print("-" * 56)
-        ranked = sorted(inputs, key=lambda p: cos(embs[ref], embs[p]), reverse=True)
-        for p in ranked:
-            print(f"  {cos(embs[ref], embs[p]):+.4f}   {os.path.basename(p)}")
-    names = list(embs.keys())
-    short = [os.path.basename(n)[:20] for n in names]
-    print("\nPairwise matrix:")
-    print(" " * 22 + " ".join(f"{s:>20}" for s in short))
-    for ni, si in zip(names, short):
-        row = " ".join(f"{cos(embs[ni], embs[nj]):>20.4f}" for nj in names)
-        print(f"{si:>20}  {row}")
-
-
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ref", type=str, default=None, help="reference / target voice clip")
+    g = ap.add_mutually_exclusive_group()
+    g.add_argument("--ref", type=str, default=None, help="single reference clip")
+    g.add_argument("--ref-dir", type=str, default=None, help="folder -> centroid reference")
     ap.add_argument("--inputs", type=str, nargs="+", required=True, help="clips to score")
     ap.add_argument("--encoder", choices=["campplus", "resemblyzer", "both"], default="both")
     args = ap.parse_args()
 
     device = _device()
-    # de-duplicate while keeping order
-    paths = list(dict.fromkeys(([args.ref] if args.ref else []) + args.inputs))
-    missing = [p for p in paths if not os.path.exists(p)]
-    if missing:
-        raise SystemExit("Missing files:\n  " + "\n  ".join(missing))
+    inputs = [p for p in dict.fromkeys(args.inputs) if os.path.exists(p)]
+    if not inputs:
+        raise SystemExit("No existing input files.")
+
+    if args.ref_dir:
+        ref_paths = sorted(glob.glob(os.path.join(args.ref_dir, "*.wav")))
+        if not ref_paths:
+            raise SystemExit(f"No .wav clips in {args.ref_dir}")
+        ref_label = f"{os.path.basename(args.ref_dir.rstrip('/'))} centroid ({len(ref_paths)} clips)"
+    elif args.ref:
+        ref_paths = [args.ref]
+        ref_label = os.path.basename(args.ref)
+    else:
+        ref_paths, ref_label = None, None
+
+    def run(name, embed_fn):
+        print(f"\n=== SECS via {name} ===")
+        if ref_paths:
+            ref_emb = centroid(ref_paths, embed_fn)
+            print(f"Cosine similarity vs reference  [{ref_label}]   (higher = more similar)")
+            print("-" * 60)
+            for p in sorted(inputs, key=lambda q: cos(ref_emb, embed_fn(q)), reverse=True):
+                print(f"  {cos(ref_emb, embed_fn(p)):+.4f}   {os.path.basename(p)}")
+        else:
+            embs = {p: embed_fn(p) for p in inputs}
+            short = [os.path.basename(n)[:20] for n in inputs]
+            print("Pairwise matrix:")
+            print(" " * 22 + " ".join(f"{s:>20}" for s in short))
+            for ni, si in zip(inputs, short):
+                print(f"{si:>20}  " + " ".join(f"{cos(embs[ni], embs[nj]):>20.4f}" for nj in inputs))
 
     if args.encoder in ("campplus", "both"):
         m = load_campplus(device)
-        embs = {p: campplus_embed(p, m, device) for p in paths}
-        report(embs, args.ref, args.inputs, "CAMPPlus (repo speaker encoder)")
-
+        run("CAMPPlus (repo speaker encoder)", lambda p: campplus_embed(p, m, device))
     if args.encoder in ("resemblyzer", "both"):
         enc = try_load_resemblyzer()
         if enc is None:
             if args.encoder == "resemblyzer":
                 raise SystemExit("resemblyzer not installed. Run: pip install resemblyzer")
-            print("\n[resemblyzer not installed -> skipping independent cross-check;"
-                  " `pip install resemblyzer` to enable]")
+            print("\n[resemblyzer not installed -> skipping independent cross-check]")
         else:
-            embs = {p: resemblyzer_embed(p, enc) for p in paths}
-            report(embs, args.ref, args.inputs, "Resemblyzer (independent GE2E)")
+            run("Resemblyzer (independent GE2E)", lambda p: resemblyzer_embed(p, enc))
 
 
 if __name__ == "__main__":

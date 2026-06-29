@@ -279,6 +279,111 @@ accelerate launch train_v2.py
     - They should be under `./runs/<run-name>/`, with the checkpoint named `ft_model.pth` and config file with the same name as the training config file.
     - You still have to specify a reference audio file of the speaker you'd like to use during inference, similar to zero-shot usage.
 
+## Evaluating fine-tuned voices: SECS, centroids & cross-character test 📐
+Listening is subjective. To measure voice-conversion quality *numerically*, this repo adds a small
+evaluation toolkit (helper scripts in the project root) built around **Speaker Embedding Cosine Similarity
+(SECS)** — the standard objective metric for "does the converted audio sound like the target speaker".
+
+### The metric: SECS
+Each clip is mapped to a fixed-length speaker-identity vector; SECS is the cosine of the angle between two
+such vectors (range `-1..1`, higher = more similar identity). Two encoders are reported:
+- **CAMPPlus** — the speaker-verification model already shipped with Seed-VC (zero setup). Note it is also
+  the encoder the model conditions timbre on, so its scores are slightly optimistic for this model.
+- **Resemblyzer** — an independent GE2E speaker encoder (already in the install list) used as an unbiased
+  cross-check. Auto-skipped if not installed.
+
+### Why a centroid instead of a single reference clip
+A character — especially expressive game VO — sounds different across clips (an attack grunt vs. a cheer),
+so scoring against a single clip is noisy and arbitrary. Instead, score against the character's
+**centroid**: the mean of the per-clip speaker embeddings over *all* of the character's clips, renormalized.
+This is equivalent to multi-utterance speaker enrollment and is the rigorous "this character's voice in
+general" target. Because each character has its own centroid, any character can be tested against any other.
+
+> **Terminology:** "centroid" here is the **average of the per-clip speaker-identity vectors** for a
+> character — the geometric center of that character's points in speaker-embedding space. It is **not** the
+> audio *spectral centroid* (brightness) feature. Each clip is first encoded by a speaker-verification model
+> into an identity vector (192-dim CAMPPlus / 256-dim Resemblyzer); those vectors are then averaged
+> element-wise and renormalized to unit length.
+
+> Do **not** concatenate all clips into one file to build the *metric* target — that only adds
+> silence/boundary artifacts and hits `inference.py`'s 25 s reference truncation. Averaging the embeddings
+> uses every clip cleanly and is truncation-free.
+
+For the **inference prompt** (the `--target` fed to the model), more audio than a single 1–2 s clip *does*
+help, but raw concatenation of everything is suboptimal. `build_reference.py` builds a clean prompt by
+trimming silence from each clip and concatenating up to ~18 s — under the 25 s truncation and leaving room in
+the model's 30 s context window:
+```powershell
+python build_reference.py --folder data\CthulhuFishH --out output\refs\CthulhuFishH_ref.wav
+```
+
+### Helper scripts
+| Script | Purpose |
+|---|---|
+| `eval_similarity.py` | Score clips with SECS against a single `--ref`, a `--ref-dir` centroid, or as a full pairwise matrix |
+| `build_reference.py` | Build a clean silence-trimmed concat prompt from a character folder |
+| `compare_models.py`  | Single-target before/after: base vs fine-tuned, scored against one target voice |
+| `voice_test.py`      | Cross-character test (below) |
+
+Score arbitrary outputs against a character centroid:
+```powershell
+python eval_similarity.py --ref-dir data\CthulhuFishH --inputs output\voice_test\ft\vc_*.wav
+```
+
+### Cross-character test (`voice_test.py`)
+Tests how well the model converts *into* each of several target characters, and whether the result is
+correctly closer to the intended target than to the others. For each target character it builds its own
+**centroid** (for scoring) and **concat prompt** (for inference); then every source clip is converted into
+every target with both the base and fine-tuned models, and each output is scored against *every* centroid on
+both encoders.
+```powershell
+# default: targets CthulhuFishH & BatH, sources = longest clip of each, models = base + ft
+python voice_test.py
+# arbitrary set of characters — each gets its own centroid automatically
+python voice_test.py --targets CthulhuFishH BatH Lion --models base ft
+# or pin your own source clips
+python voice_test.py --sources examples\source\VO_Alpaca_rest_2.wav examples\source\VO_DeerH_eat_1.wav
+```
+It prints two tables per encoder:
+- **Accuracy** — each output vs its *intended* target centroid, `base` vs `ft` with the `Δ` improvement.
+  Same-character rows (e.g. a CthulhuFishH source → CthulhuFishH target) act as the realistic ceiling, since
+  even genuine same-speaker SECS is well below 1.0 for expressive VO.
+- **Discrimination** — each fine-tuned output vs *every* centroid, flagged `OK` when it is closest to the
+  intended target (e.g. a "→ BatH" conversion really does land nearest BatH and not CthulhuFishH).
+
+Generated audio and reference prompts are written under `output\voice_test\{base,ft}\` and
+`output\voice_test\ref_<character>.wav` for A/B listening.
+
+## Character Voice Conversion GUI 🎭
+`app_character_vc.py` is a Gradio web app for turning **any** audio into one of your dataset characters'
+voices: upload a clip, pick a character from a dropdown, click convert. The interface is in **Chinese (中文)**.
+
+It uses the efficient zero-shot architecture — **one model + a per-character reference library**, not one
+trained model per character:
+- A single checkpoint (the fine-tuned `runs/game_vc_ft/ft_model.pth` by default) handles every character.
+- Each character's target voice is a reference prompt auto-built on first use from `data/<character>/` via
+  `build_reference.py` (silence-trimmed centroid concatenation), then cached to `output/refs/<character>.wav`.
+- Adding a character is just dropping a folder of clips into `data/` — no retraining.
+
+```powershell
+.\.venv\Scripts\python.exe app_character_vc.py             # fine-tuned model, opens http://localhost:7860
+.\.venv\Scripts\python.exe app_character_vc.py --prebuild  # build all character references at startup
+.\.venv\Scripts\python.exe app_character_vc.py --checkpoint "" --config ""  # use base pretrained model
+.\.venv\Scripts\python.exe app_character_vc.py --share     # create a public share link
+```
+- `checkpoint` / `config` — model to use; pass empty strings to fall back to the base pretrained model
+- `data-dir` (default `data`) — folder of `<character>/*.wav` subfolders that populate the dropdown
+- `ref-dir` (default `output/refs`) — where per-character reference prompts are cached
+- `ref-dur` (default `18`) — max seconds of reference audio per character
+- `prebuild` — build every character's reference up front (slower startup, instant first conversion)
+
+The dropdown is type-to-filter, so a large character list is fine. Unlike `app_vc.py`, this app writes WAV
+directly and needs no `ffmpeg`.
+
+> For a character that needs higher fidelity than the shared model gives, train a per-character specialized
+> checkpoint (see [Training](#training), e.g. `--pretrained-ckpt runs/game_vc_ft/ft_model.pth --dataset-dir
+> data/<character> --max-steps 300`) and launch the GUI with that `--checkpoint`.
+
 ## TODO📝
 - [x] Release code
 - [x] Release pretrained models: [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-SeedVC-blue)](https://huggingface.co/Plachta/Seed-VC)

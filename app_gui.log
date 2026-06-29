@@ -1,0 +1,160 @@
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+cfm loaded
+length_regulator loaded
+Loading weights from nvidia/bigvgan_v2_44khz_128band_512x
+Removing weight norm...
+* Running on local URL:  http://127.0.0.1:7860
+
+To create a public link, set `share=True` in `launch()`.
+wrote output/refs_44k_dry\SealU.wav  (15.8s from 11 clips, silence-trimmed)
+  0%|          | 0/30 [00:00<?, ?it/s]  7%|¨ƒ         | 2/30 [00:00<00:01, 14.22it/s] 13%|¨€¨†        | 4/30 [00:00<00:02, 11.26it/s] 20%|¨€¨€        | 6/30 [00:00<00:02, 10.55it/s] 27%|¨€¨€¨ƒ       | 8/30 [00:00<00:02, 10.26it/s] 33%|¨€¨€¨€¨†      | 10/30 [00:00<00:01, 10.08it/s] 40%|¨€¨€¨€¨€      | 12/30 [00:01<00:01, 10.00it/s] 47%|¨€¨€¨€¨€¨ƒ     | 14/30 [00:01<00:01,  9.89it/s] 50%|¨€¨€¨€¨€¨€     | 15/30 [00:01<00:01,  9.85it/s] 53%|¨€¨€¨€¨€¨€¨†    | 16/30 [00:01<00:01,  9.85it/s] 57%|¨€¨€¨€¨€¨€¨ƒ    | 17/30 [00:01<00:01,  9.87it/s] 60%|¨€¨€¨€¨€¨€¨€    | 18/30 [00:01<00:01,  9.86it/s] 63%|¨€¨€¨€¨€¨€¨€¨†   | 19/30 [00:01<00:01,  9.82it/s] 67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 20/30 [00:01<00:01,  9.80it/s] 70%|¨€¨€¨€¨€¨€¨€¨€   | 21/30 [00:02<00:00,  9.78it/s] 73%|¨€¨€¨€¨€¨€¨€¨€¨†  | 22/30 [00:02<00:00,  9.82it/s] 77%|¨€¨€¨€¨€¨€¨€¨€¨ƒ  | 23/30 [00:02<00:00,  9.83it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 24/30 [00:02<00:00,  9.77it/s] 83%|¨€¨€¨€¨€¨€¨€¨€¨€¨† | 25/30 [00:02<00:00,  9.79it/s] 87%|¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ | 26/30 [00:02<00:00,  9.75it/s] 93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 28/30 [00:02<00:00,  9.81it/s] 97%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ| 29/30 [00:02<00:00,  9.76it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00,  9.80it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.00it/s]
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+  0%|          | 0/30 [00:00<?, ?it/s]  7%|¨ƒ         | 2/30 [00:00<00:01, 15.43it/s] 13%|¨€¨†        | 4/30 [00:00<00:02, 11.23it/s] 20%|¨€¨€        | 6/30 [00:00<00:02, 10.37it/s] 27%|¨€¨€¨ƒ       | 8/30 [00:00<00:02,  9.97it/s] 33%|¨€¨€¨€¨†      | 10/30 [00:00<00:02,  9.92it/s] 40%|¨€¨€¨€¨€      | 12/30 [00:01<00:01,  9.79it/s] 43%|¨€¨€¨€¨€¨†     | 13/30 [00:01<00:01,  9.72it/s] 47%|¨€¨€¨€¨€¨ƒ     | 14/30 [00:01<00:01,  9.73it/s] 50%|¨€¨€¨€¨€¨€     | 15/30 [00:01<00:01,  9.71it/s] 53%|¨€¨€¨€¨€¨€¨†    | 16/30 [00:01<00:01,  9.57it/s] 60%|¨€¨€¨€¨€¨€¨€    | 18/30 [00:01<00:01,  9.60it/s] 63%|¨€¨€¨€¨€¨€¨€¨†   | 19/30 [00:01<00:01,  9.62it/s] 67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 20/30 [00:02<00:01,  9.60it/s] 70%|¨€¨€¨€¨€¨€¨€¨€   | 21/30 [00:02<00:00,  9.61it/s] 73%|¨€¨€¨€¨€¨€¨€¨€¨†  | 22/30 [00:02<00:00,  9.60it/s] 77%|¨€¨€¨€¨€¨€¨€¨€¨ƒ  | 23/30 [00:02<00:00,  9.59it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 24/30 [00:02<00:00,  9.55it/s] 83%|¨€¨€¨€¨€¨€¨€¨€¨€¨† | 25/30 [00:02<00:00,  9.58it/s] 87%|¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ | 26/30 [00:02<00:00,  9.57it/s] 90%|¨€¨€¨€¨€¨€¨€¨€¨€¨€ | 27/30 [00:02<00:00,  9.59it/s] 93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 28/30 [00:02<00:00,  9.50it/s] 97%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ| 29/30 [00:02<00:00,  9.59it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:03<00:00,  9.58it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:03<00:00,  9.81it/s]
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+  0%|          | 0/30 [00:00<?, ?it/s]  7%|¨ƒ         | 2/30 [00:00<00:01, 15.92it/s] 13%|¨€¨†        | 4/30 [00:00<00:02, 11.60it/s] 20%|¨€¨€        | 6/30 [00:00<00:02, 10.88it/s] 27%|¨€¨€¨ƒ       | 8/30 [00:00<00:02, 10.47it/s] 33%|¨€¨€¨€¨†      | 10/30 [00:00<00:01, 10.27it/s] 40%|¨€¨€¨€¨€      | 12/30 [00:01<00:01, 10.15it/s] 47%|¨€¨€¨€¨€¨ƒ     | 14/30 [00:01<00:01,  9.96it/s] 53%|¨€¨€¨€¨€¨€¨†    | 16/30 [00:01<00:01, 10.05it/s] 60%|¨€¨€¨€¨€¨€¨€    | 18/30 [00:01<00:01,  9.97it/s] 67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 20/30 [00:01<00:01,  9.96it/s] 73%|¨€¨€¨€¨€¨€¨€¨€¨†  | 22/30 [00:02<00:00, 10.00it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 24/30 [00:02<00:00,  9.95it/s] 87%|¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ | 26/30 [00:02<00:00,  9.98it/s] 90%|¨€¨€¨€¨€¨€¨€¨€¨€¨€ | 27/30 [00:02<00:00,  9.96it/s] 93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 28/30 [00:02<00:00,  9.95it/s] 97%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ| 29/30 [00:02<00:00,  9.86it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.18it/s]
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+  0%|          | 0/30 [00:00<?, ?it/s]  7%|¨ƒ         | 2/30 [00:00<00:01, 16.77it/s] 13%|¨€¨†        | 4/30 [00:00<00:02, 12.32it/s] 20%|¨€¨€        | 6/30 [00:00<00:02, 11.27it/s] 27%|¨€¨€¨ƒ       | 8/30 [00:00<00:02, 10.97it/s] 33%|¨€¨€¨€¨†      | 10/30 [00:00<00:01, 10.76it/s] 40%|¨€¨€¨€¨€      | 12/30 [00:01<00:01, 10.67it/s] 47%|¨€¨€¨€¨€¨ƒ     | 14/30 [00:01<00:01, 10.58it/s] 53%|¨€¨€¨€¨€¨€¨†    | 16/30 [00:01<00:01, 10.59it/s] 60%|¨€¨€¨€¨€¨€¨€    | 18/30 [00:01<00:01, 10.54it/s] 67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 20/30 [00:01<00:00, 10.51it/s] 73%|¨€¨€¨€¨€¨€¨€¨€¨†  | 22/30 [00:02<00:00, 10.50it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 24/30 [00:02<00:00, 10.48it/s] 87%|¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ | 26/30 [00:02<00:00, 10.38it/s] 93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 28/30 [00:02<00:00, 10.43it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.44it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.70it/s]
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+  0%|          | 0/30 [00:00<?, ?it/s]  7%|¨ƒ         | 2/30 [00:00<00:01, 15.92it/s] 13%|¨€¨†        | 4/30 [00:00<00:02, 12.12it/s] 20%|¨€¨€        | 6/30 [00:00<00:02, 11.36it/s] 27%|¨€¨€¨ƒ       | 8/30 [00:00<00:02, 10.93it/s] 33%|¨€¨€¨€¨†      | 10/30 [00:00<00:01, 10.82it/s] 40%|¨€¨€¨€¨€      | 12/30 [00:01<00:01, 10.75it/s] 47%|¨€¨€¨€¨€¨ƒ     | 14/30 [00:01<00:01, 10.66it/s] 53%|¨€¨€¨€¨€¨€¨†    | 16/30 [00:01<00:01, 10.61it/s] 60%|¨€¨€¨€¨€¨€¨€    | 18/30 [00:01<00:01, 10.48it/s] 67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 20/30 [00:01<00:00, 10.56it/s] 73%|¨€¨€¨€¨€¨€¨€¨€¨†  | 22/30 [00:02<00:00, 10.54it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 24/30 [00:02<00:00, 10.48it/s] 87%|¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ | 26/30 [00:02<00:00, 10.52it/s] 93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 28/30 [00:02<00:00, 10.48it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.44it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.71it/s]
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+  0%|          | 0/30 [00:00<?, ?it/s]  7%|¨ƒ         | 2/30 [00:00<00:01, 16.44it/s] 13%|¨€¨†        | 4/30 [00:00<00:02, 12.23it/s] 20%|¨€¨€        | 6/30 [00:00<00:02, 11.35it/s] 27%|¨€¨€¨ƒ       | 8/30 [00:00<00:02, 10.90it/s] 33%|¨€¨€¨€¨†      | 10/30 [00:00<00:01, 10.59it/s] 40%|¨€¨€¨€¨€      | 12/30 [00:01<00:01, 10.62it/s] 47%|¨€¨€¨€¨€¨ƒ     | 14/30 [00:01<00:01, 10.55it/s] 53%|¨€¨€¨€¨€¨€¨†    | 16/30 [00:01<00:01, 10.50it/s] 60%|¨€¨€¨€¨€¨€¨€    | 18/30 [00:01<00:01, 10.46it/s] 67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 20/30 [00:01<00:00, 10.45it/s] 73%|¨€¨€¨€¨€¨€¨€¨€¨†  | 22/30 [00:02<00:00, 10.39it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 24/30 [00:02<00:00, 10.38it/s] 87%|¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ | 26/30 [00:02<00:00, 10.37it/s] 93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 28/30 [00:02<00:00, 10.39it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.31it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 30/30 [00:02<00:00, 10.62it/s]
+ERROR:    Traceback (most recent call last):
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\uvicorn\_compat.py", line 60, in asyncio_run
+    return loop.run_until_complete(main)
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\queueing.py", line 625, in process_events
+    response = await route_utils.call_process_api(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\blocks.py", line 2137, in process_api
+    result = await self.call_function(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\blocks.py", line 1663, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2518, in run_sync_in_worker_thread
+    return await future
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1002, in run
+    result = context.run(func, *args)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\utils.py", line 890, in wrapper
+    response = f(*args, **kwargs)
+  File "D:\VCModels\seed-vc\app_character_vc.py", line 158, in convert_zip
+    ref = get_reference(model_label, character)
+  File "D:\VCModels\seed-vc\app_character_vc.py", line 111, in get_reference
+    build_reference(os.path.join(available[label]["data"], character),
+  File "D:\VCModels\seed-vc\build_reference.py", line 41, in build_reference
+    raise SystemExit(f"No usable audio found in {folder}")
+SystemExit: No usable audio found in data/pgameVO_normalized\HippoU
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\uvicorn\_compat.py", line 60, in asyncio_run
+    return loop.run_until_complete(main)
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\queueing.py", line 625, in process_events
+    response = await route_utils.call_process_api(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\blocks.py", line 2137, in process_api
+    result = await self.call_function(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\blocks.py", line 1663, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2518, in run_sync_in_worker_thread
+    return await future
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1002, in run
+    result = context.run(func, *args)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\utils.py", line 890, in wrapper
+    response = f(*args, **kwargs)
+  File "D:\VCModels\seed-vc\app_character_vc.py", line 158, in convert_zip
+    ref = get_reference(model_label, character)
+  File "D:\VCModels\seed-vc\app_character_vc.py", line 111, in get_reference
+    build_reference(os.path.join(available[label]["data"], character),
+  File "D:\VCModels\seed-vc\build_reference.py", line 41, in build_reference
+    raise SystemExit(f"No usable audio found in {folder}")
+SystemExit: No usable audio found in data/pgameVO_normalized\HippoU
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\fastapi\applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\gradio\route_utils.py", line 822, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\fastapi\routing.py", line 121, in app
+    await response(scope, receive, send)
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\responses.py", line 270, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 803, in __aexit__
+    raise exc_val
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\responses.py", line 277, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\starlette\responses.py", line 241, in listen_for_disconnect
+    message = await receive()
+  File "D:\VCModels\seed-vc\.venv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 536, in receive
+    await self.message_event.wait()
+  File "C:\Users\zhushangyi\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
