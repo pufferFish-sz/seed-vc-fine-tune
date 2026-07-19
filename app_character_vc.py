@@ -228,7 +228,7 @@ def main(args):
 
         model_sel.change(on_model_change, model_sel, [ch1, ch2])
 
-    demo.launch(share=args.share)
+    demo.launch(server_name=args.host, server_port=args.port, share=args.share)
 
 
 if __name__ == "__main__":
@@ -237,6 +237,9 @@ if __name__ == "__main__":
     parser.add_argument("--ref-dur", type=float, default=18.0)
     parser.add_argument("--auto-f0-adjust", action="store_true", default=True)
     parser.add_argument("--prebuild", action="store_true", help="build all references at startup")
+    parser.add_argument("--host", type=str, default="127.0.0.1",
+                        help="bind address; use 0.0.0.0 to allow other machines on the LAN")
+    parser.add_argument("--port", type=int, default=7860, help="server port")
     parser.add_argument("--share", action="store_true", help="create a public Gradio share link")
     parser.add_argument("--fp32", action="store_true",
                         help="use full fp32 inference (cleaner/less fuzzy, slower) instead of fp16")

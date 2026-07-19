@@ -15,6 +15,41 @@ To find a list of demos and comparisons with previous voice conversion models, p
 
 We are keeping on improving the model quality and adding more features.
 
+## What's in this fork 🍴
+This fork adapts Seed-VC for **game-character voice conversion** (cartoon-animal VO for PGame). Everything
+below is additional to the upstream repo; sections further down document each piece in detail.
+
+### Fine-tuning performed
+Two production models were fine-tuned from the official pretrained **44.1 kHz f0-conditioned** checkpoint
+(`seed-uvit-whisper-base`, config `configs/presets/config_dit_mel_seed_uvit_whisper_base_f0_44k.yml`):
+
+| Run | Training data | Use |
+|---|---|---|
+| `runs/game_vc_44k_clean_ft` | `data/_pgameVO_normalized` — dry VO, no effects, peak-normalized to −6 dBFS | GUI「干声」model (default; measurably less high-band grunge) |
+| `runs/game_vc_44k_ft` | `data/` — original VO with baked-in effects | GUI「含特效」model |
+
+The fine-tuning is **full fine-tuning, not adapter/LoRA-based**: all ~196M parameters of the generative
+core (186M CFM DiT estimator + 10M length regulator) receive gradients, initialized from the pretrained
+checkpoint and trained ~5000 steps at batch size 1 (fits a 12 GB RTX 3060). No layers are added or frozen
+inside the generative core. The surrounding feature extractors stay frozen throughout: Whisper (content),
+CAMPPlus (speaker), BigVGAN (vocoder), OpenVoice (training-time timbre perturbation), RMVPE (f0). Each
+resulting checkpoint is a complete 785 MB weight set (`ft_model.pth`).
+
+### Additions on top of upstream
+- **Character VC web GUI** (`app_character_vc.py`) — Chinese UI; dropdown of all dataset characters,
+  dry/effects model selector with hot weight-swapping, single-file + batch-zip conversion tabs, LAN
+  sharing. See [Character Voice Conversion GUI](#character-voice-conversion-gui-).
+- **Objective evaluation toolkit** — SECS speaker-similarity metric with per-character **centroid**
+  references (`eval_similarity.py`), reference-prompt builder (`build_reference.py`), base-vs-fine-tuned
+  comparison (`compare_models.py`), and cross-character accuracy/discrimination test (`voice_test.py`).
+  See [Evaluating fine-tuned voices](#evaluating-fine-tuned-voices-secs-centroids--cross-character-test-).
+- **Command-line batch conversion** (`batch_convert_44k.py`) — converts a whole folder with the f0 model,
+  loading it once.
+- **Windows setup notes** — verified install steps for Windows 10 + RTX 3060 (see
+  [Local setup](#local-setup-verified-on-windows-rtx-3060-python-310-)).
+- `.gitignore` rules keeping datasets, generated audio (`*.wav` beyond the committed examples), archives
+  (`*.zip`), and model runs out of version control.
+
 ## Evaluation📊
 See [EVAL.md](EVAL.md) for objective evaluation results and comparisons with other baselines.
 ## Installation📥
@@ -383,6 +418,24 @@ directly and needs no `ffmpeg`.
 > For a character that needs higher fidelity than the shared model gives, train a per-character specialized
 > checkpoint (see [Training](#training), e.g. `--pretrained-ckpt runs/game_vc_ft/ft_model.pth --dataset-dir
 > data/<character> --max-steps 300`) and launch the GUI with that `--checkpoint`.
+
+### Share the GUI on the LAN (verified on this machine)
+By default the app binds to `127.0.0.1` (this machine only). To let others on the same internal network use
+it, bind to all interfaces with `--host 0.0.0.0` and share **this machine's LAN IP**:
+
+```powershell
+# 1. Find this machine's LAN IPv4 (use the office Ethernet/Wi-Fi one, NOT the CorpLink VPN address)
+Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -notlike '127.*' -and $_.IPAddress -notlike '169.254.*' } | Select IPAddress, InterfaceAlias
+
+# 2. One-time: allow inbound TCP 7860 through Windows Firewall (run PowerShell as Administrator)
+New-NetFirewallRule -DisplayName "SeedVC GUI 7860" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 7860 -Profile Any
+
+# 3. Launch bound to all interfaces
+.\.venv\Scripts\python.exe app_character_vc.py --host 0.0.0.0
+```
+Others then open `http://<this-machine-LAN-IP>:7860` (e.g. `http://10.1.53.178:7860`). Notes: this machine
+must stay on with the server running; visitors must be on the same subnet; and everyone shares the one GPU
+(Gradio queues requests, so conversions run one at a time). Use `--port <N>` to change the port.
 
 ## TODO📝
 - [x] Release code
