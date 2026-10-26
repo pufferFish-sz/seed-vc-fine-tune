@@ -1,129 +1,0 @@
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-Warning: Skipped loading some keys due to shape mismatch: {'estimator.input_pos', 'estimator.f0_embedder.weight'}
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:17,  1.39it/s] 12%|¨€¨‡        | 3/25 [00:00<00:05,  4.11it/s] 16%|¨€¨„        | 4/25 [00:00<00:04,  5.06it/s] 20%|¨€¨€        | 5/25 [00:01<00:03,  5.78it/s] 24%|¨€¨€¨…       | 6/25 [00:01<00:02,  6.58it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  6.76it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  6.94it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:02,  7.23it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  7.56it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  7.41it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:02<00:01,  7.31it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:02<00:01,  7.29it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:02<00:01,  7.76it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:02<00:01,  7.98it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:02<00:01,  8.12it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  8.43it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  8.40it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  8.38it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  8.50it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:03<00:00,  8.59it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:03<00:00,  8.67it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:03<00:00,  8.59it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:03<00:00,  8.35it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.49it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  7.05it/s]
-RTF: 1.8072473928641481
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-Warning: Skipped loading some keys due to shape mismatch: {'estimator.input_pos', 'estimator.f0_embedder.weight'}
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:11,  2.03it/s] 12%|¨€¨‡        | 3/25 [00:00<00:04,  5.19it/s] 16%|¨€¨„        | 4/25 [00:00<00:03,  5.62it/s] 20%|¨€¨€        | 5/25 [00:00<00:03,  6.16it/s] 24%|¨€¨€¨…       | 6/25 [00:01<00:02,  6.71it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  6.98it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  7.19it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:02,  7.40it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  7.99it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  8.11it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:01<00:01,  8.28it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:01<00:01,  8.33it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:02<00:01,  7.97it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:02<00:01,  8.06it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:02<00:01,  8.20it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  8.34it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  8.40it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  8.39it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  8.43it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:02<00:00,  8.40it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:02<00:00,  8.36it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:03<00:00,  8.13it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:03<00:00,  8.21it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.26it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  7.43it/s]
-RTF: 1.6558958942078332
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-Warning: Skipped loading some keys due to shape mismatch: {'estimator.input_pos', 'estimator.f0_embedder.weight'}
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:18,  1.31it/s] 12%|¨€¨‡        | 3/25 [00:00<00:05,  4.04it/s] 16%|¨€¨„        | 4/25 [00:00<00:04,  5.07it/s] 20%|¨€¨€        | 5/25 [00:01<00:03,  6.00it/s] 24%|¨€¨€¨…       | 6/25 [00:01<00:02,  6.62it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  7.36it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  7.93it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:02,  7.93it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  8.12it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  8.48it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:01<00:01,  8.70it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:01<00:01,  9.02it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:02<00:01,  9.12it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:02<00:01,  9.06it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  9.32it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  9.38it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  9.39it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  9.28it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:02<00:00,  9.32it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:02<00:00,  9.34it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:03<00:00,  9.32it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:03<00:00,  9.37it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  9.35it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  7.65it/s]
-RTF: 1.5310514503499677
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-Warning: Skipped loading some keys due to shape mismatch: {'estimator.f0_embedder.weight', 'estimator.input_pos'}
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:11,  2.10it/s] 12%|¨€¨‡        | 3/25 [00:00<00:03,  5.71it/s] 16%|¨€¨„        | 4/25 [00:00<00:03,  6.48it/s] 20%|¨€¨€        | 5/25 [00:00<00:02,  7.08it/s] 24%|¨€¨€¨…       | 6/25 [00:00<00:02,  7.53it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  7.89it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  8.10it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:01,  8.24it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  8.40it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  8.37it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:01<00:01,  8.54it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:01<00:01,  8.58it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:01<00:01,  8.64it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:01<00:01,  8.66it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:02<00:01,  8.70it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  8.69it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  8.73it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  8.74it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  8.75it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:02<00:00,  8.68it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:02<00:00,  8.71it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:02<00:00,  8.58it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:03<00:00,  8.62it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.71it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  7.95it/s]
-RTF: 1.3173507634733974
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:10,  2.19it/s] 12%|¨€¨‡        | 3/25 [00:00<00:03,  5.79it/s] 20%|¨€¨€        | 5/25 [00:00<00:02,  7.40it/s] 24%|¨€¨€¨…       | 6/25 [00:00<00:02,  7.94it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  8.23it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:01,  8.62it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:01,  8.79it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  9.07it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  9.18it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:01<00:01,  9.26it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:01<00:01,  9.37it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:01<00:01,  9.41it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:01<00:00,  9.57it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  9.57it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  9.53it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  9.57it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  9.13it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:02<00:00,  9.31it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:02<00:00,  9.40it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:02<00:00,  9.34it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:02<00:00,  9.50it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:02<00:00,  8.59it/s]
-RTF: 1.4492999690805108
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:11,  2.10it/s]  8%|¨‚         | 2/25 [00:00<00:10,  2.19it/s] 12%|¨€¨‡        | 3/25 [00:01<00:06,  3.22it/s] 16%|¨€¨„        | 4/25 [00:01<00:05,  4.08it/s] 20%|¨€¨€        | 5/25 [00:01<00:03,  5.09it/s] 24%|¨€¨€¨…       | 6/25 [00:01<00:03,  6.08it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  6.49it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  6.66it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:02,  7.00it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  7.65it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:02<00:01,  7.75it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:02<00:01,  7.55it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:02<00:01,  7.81it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:02<00:01,  7.68it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:02<00:01,  7.64it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:02<00:01,  7.83it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:01,  7.97it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  8.30it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:03<00:00,  8.45it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:03<00:00,  8.27it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:03<00:00,  7.82it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:03<00:00,  8.09it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:03<00:00,  8.43it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:03<00:00,  8.61it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.51it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  6.66it/s]
-RTF: 1.7898630596218144
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:12,  1.90it/s] 12%|¨€¨‡        | 3/25 [00:00<00:04,  5.39it/s] 16%|¨€¨„        | 4/25 [00:00<00:03,  6.26it/s] 20%|¨€¨€        | 5/25 [00:00<00:02,  7.08it/s] 24%|¨€¨€¨…       | 6/25 [00:00<00:02,  7.66it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  8.07it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  8.36it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:01,  8.69it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  8.87it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  8.99it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:01<00:01,  9.15it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:01<00:01,  9.06it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:01<00:01,  9.18it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:01<00:01,  9.11it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:02<00:00,  9.32it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  9.31it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  9.13it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  9.36it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  9.41it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:02<00:00,  9.40it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:02<00:00,  8.84it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:02<00:00,  8.35it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:02<00:00,  8.28it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.52it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.09it/s]
-RTF: 1.309410186687773
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
-cfm loaded
-length_regulator loaded
-Loading weights from nvidia/bigvgan_v2_22khz_80band_256x
-Removing weight norm...
-  0%|          | 0/25 [00:00<?, ?it/s]  4%|¨…         | 1/25 [00:00<00:11,  2.04it/s] 12%|¨€¨‡        | 3/25 [00:00<00:03,  5.51it/s] 16%|¨€¨„        | 4/25 [00:00<00:03,  6.29it/s] 20%|¨€¨€        | 5/25 [00:00<00:02,  6.80it/s] 24%|¨€¨€¨…       | 6/25 [00:00<00:02,  7.25it/s] 28%|¨€¨€¨‚       | 7/25 [00:01<00:02,  7.50it/s] 32%|¨€¨€¨€¨‡      | 8/25 [00:01<00:02,  7.67it/s] 36%|¨€¨€¨€¨„      | 9/25 [00:01<00:02,  7.93it/s] 40%|¨€¨€¨€¨€      | 10/25 [00:01<00:01,  8.04it/s] 44%|¨€¨€¨€¨€¨…     | 11/25 [00:01<00:01,  8.14it/s] 48%|¨€¨€¨€¨€¨‚     | 12/25 [00:01<00:01,  8.19it/s] 52%|¨€¨€¨€¨€¨€¨‡    | 13/25 [00:01<00:01,  8.21it/s] 56%|¨€¨€¨€¨€¨€¨„    | 14/25 [00:01<00:01,  8.32it/s] 60%|¨€¨€¨€¨€¨€¨€    | 15/25 [00:02<00:01,  8.29it/s] 64%|¨€¨€¨€¨€¨€¨€¨…   | 16/25 [00:02<00:01,  8.24it/s] 68%|¨€¨€¨€¨€¨€¨€¨‚   | 17/25 [00:02<00:00,  8.31it/s] 72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 18/25 [00:02<00:00,  8.30it/s] 76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 19/25 [00:02<00:00,  8.15it/s] 80%|¨€¨€¨€¨€¨€¨€¨€¨€  | 20/25 [00:02<00:00,  8.21it/s] 84%|¨€¨€¨€¨€¨€¨€¨€¨€¨… | 21/25 [00:02<00:00,  8.27it/s] 88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 22/25 [00:02<00:00,  8.26it/s] 92%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‡| 23/25 [00:03<00:00,  8.31it/s] 96%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨„| 24/25 [00:03<00:00,  8.31it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  8.30it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 25/25 [00:03<00:00,  7.60it/s]
-RTF: 1.3834305492911856
-D:\VCModels\seed-vc\eval_similarity.py:47: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  m.load_state_dict(torch.load(ckpt, map_location="cpu"))
-D:\VCModels\seed-vc\.venv\lib\site-packages\resemblyzer\voice_encoder.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  checkpoint = torch.load(weights_fpath, map_location="cpu")
-wrote output/voice_test\ref_CthulhuFishH.wav  (17.2s from 13 clips, silence-trimmed)
-wrote output/voice_test\ref_BatH.wav  (17.7s from 10 clips, silence-trimmed)
->>> [base] VO_CthulhuFishH_rest_3.wav -> ref_CthulhuFishH.wav
->>> [base] VO_CthulhuFishH_rest_3.wav -> ref_BatH.wav
->>> [base] VO_BatH_cheer_3.wav -> ref_CthulhuFishH.wav
->>> [base] VO_BatH_cheer_3.wav -> ref_BatH.wav
->>> [fine-tuned] VO_CthulhuFishH_rest_3.wav -> ref_CthulhuFishH.wav
->>> [fine-tuned] VO_CthulhuFishH_rest_3.wav -> ref_BatH.wav
->>> [fine-tuned] VO_BatH_cheer_3.wav -> ref_CthulhuFishH.wav
->>> [fine-tuned] VO_BatH_cheer_3.wav -> ref_BatH.wav
-
-==============================================================================
-ACCURACY  (output vs intended target centroid)   via CAMPPlus (repo speaker encoder)
-higher = reached the target voice;  ¦¤ = ft - base
-------------------------------------------------------------------------------
-                    source      -> target     base       ft        ¦¤
-VO_CthulhuFishH_rest_3.wav   CthulhuFishH    0.782    0.776   -0.007
-VO_CthulhuFishH_rest_3.wav           BatH    0.686    0.755   +0.069
-       VO_BatH_cheer_3.wav   CthulhuFishH    0.807    0.831   +0.024
-       VO_BatH_cheer_3.wav           BatH    0.751    0.691   -0.060
-
-------------------------------------------------------------------------------
-DISCRIMINATION  (fine-tuned output vs every centroid)   via CAMPPlus (repo speaker encoder)
-intended target marked *; correct if its score is the highest in the row
-------------------------------------------------------------------------------
-                    source      -> target  vs CthulhuFi      vs BatH
-VO_CthulhuFishH_rest_3.wav   CthulhuFishH        0.776*       0.482   OK
-VO_CthulhuFishH_rest_3.wav           BatH        0.557        0.755*  OK
-       VO_BatH_cheer_3.wav   CthulhuFishH        0.831*       0.595   OK
-       VO_BatH_cheer_3.wav           BatH        0.390        0.691*  OK
-Loaded the voice encoder model on cpu in 0.01 seconds.
-
-==============================================================================
-ACCURACY  (output vs intended target centroid)   via Resemblyzer (independent GE2E)
-higher = reached the target voice;  ¦¤ = ft - base
-------------------------------------------------------------------------------
-                    source      -> target     base       ft        ¦¤
-VO_CthulhuFishH_rest_3.wav   CthulhuFishH    0.822    0.871   +0.049
-VO_CthulhuFishH_rest_3.wav           BatH    0.841    0.859   +0.018
-       VO_BatH_cheer_3.wav   CthulhuFishH    0.869    0.879   +0.010
-       VO_BatH_cheer_3.wav           BatH    0.884    0.865   -0.018
-
-------------------------------------------------------------------------------
-DISCRIMINATION  (fine-tuned output vs every centroid)   via Resemblyzer (independent GE2E)
-intended target marked *; correct if its score is the highest in the row
-------------------------------------------------------------------------------
-                    source      -> target  vs CthulhuFi      vs BatH
-VO_CthulhuFishH_rest_3.wav   CthulhuFishH        0.871*       0.750   OK
-VO_CthulhuFishH_rest_3.wav           BatH        0.732        0.859*  OK
-       VO_BatH_cheer_3.wav   CthulhuFishH        0.879*       0.834   OK
-       VO_BatH_cheer_3.wav           BatH        0.724        0.865*  OK
-
-Audio for listening:
-  base outputs -> output/voice_test\base
-  ft   outputs -> output/voice_test\ft
-  prompt[CthulhuFishH] -> output/voice_test\ref_CthulhuFishH.wav
-  prompt[BatH] -> output/voice_test\ref_BatH.wav

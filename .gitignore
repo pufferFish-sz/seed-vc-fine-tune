@@ -47,3 +47,6 @@ examples/target/
 
 # local-only scripts / scratch
 rt_benchmark.py
+
+# logs from training / conversion runs
+*.log

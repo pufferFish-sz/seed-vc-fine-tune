@@ -1,4 +1,0 @@
-usage: app_character_vc.py [-h] [--batch-out BATCH_OUT] [--ref-dur REF_DUR]
-                           [--auto-f0-adjust] [--prebuild] [--host HOST]
-                           [--port PORT] [--share] [--fp32] [--gpu GPU]
-app_character_vc.py: error: unrecognized arguments: *

@@ -1,22 +1,11 @@
-# Seed-VC  
-[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Demo-blue)](https://huggingface.co/spaces/Plachta/Seed-VC)  [![arXiv](https://img.shields.io/badge/arXiv-2411.09943-<COLOR>.svg)](https://arxiv.org/abs/2411.09943)
+# Seed-VC for Game-Character Voice Conversion
 
-*English | [简体中文](README-ZH.md) | [日本語](README-JA.md)*  
+Fine-tuned [Seed-VC](https://github.com/Plachtaa/seed-vc) models and tooling for converting voice-over into specific game characters' voices: two full fine-tunes at 44.1 kHz, a character conversion GUI with batch mode, and an objective speaker-similarity evaluation toolkit.
 
-[real-time-demo.webm](https://github.com/user-attachments/assets/86325c5e-f7f6-4a04-8695-97275a5d046c)
-
-Currently released model supports *zero-shot voice conversion* 🔊 , *zero-shot real-time voice conversion* 🗣️ and *zero-shot singing voice conversion* 🎶. Without any training, it is able to clone a voice given a reference speech of 1~30 seconds.  
-
-We support further fine-tuning on custom data to increase performance on specific speaker/speakers, with extremely low data requirement **(minimum 1 utterance per speaker)** and extremely fast training speed **(minimum 100 steps, 2 min on T4)**!
-
-**Real-time voice conversion** is support, with algorithm delay of ~300ms and device side delay of ~100ms, suitable for online meetings, gaming and live streaming.
-
-To find a list of demos and comparisons with previous voice conversion models, please visit our [demo page](https://plachtaa.github.io/seed-vc/)🌐  and [Evaluaiton](EVAL.md)📊.
-
-We are keeping on improving the model quality and adding more features.
+**Built by [Shangyi Zhu](https://github.com/pufferFish-sz).** The fork-specific work is summarized below; everything after the divider is the upstream Seed-VC documentation.
 
 ## What's in this fork 🍴
-This fork adapts Seed-VC for **game-character voice conversion** (cartoon-animal VO for PGame). Everything
+This fork adapts Seed-VC for **game-character voice conversion** (stylized cartoon-animal character voice-over). Everything
 below is additional to the upstream repo; sections further down document each piece in detail.
 
 ### Fine-tuning performed
@@ -49,6 +38,26 @@ resulting checkpoint is a complete 785 MB weight set (`ft_model.pth`).
   [Local setup](#local-setup-verified-on-windows-rtx-3060-python-310-)).
 - `.gitignore` rules keeping datasets, generated audio (`*.wav` beyond the committed examples), archives
   (`*.zip`), and model runs out of version control.
+
+
+---
+
+## Seed-VC (upstream)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Demo-blue)](https://huggingface.co/spaces/Plachta/Seed-VC)  [![arXiv](https://img.shields.io/badge/arXiv-2411.09943-<COLOR>.svg)](https://arxiv.org/abs/2411.09943)
+
+*English | [简体中文](README-ZH.md) | [日本語](README-JA.md)*  
+
+[real-time-demo.webm](https://github.com/user-attachments/assets/86325c5e-f7f6-4a04-8695-97275a5d046c)
+
+Currently released model supports *zero-shot voice conversion* 🔊 , *zero-shot real-time voice conversion* 🗣️ and *zero-shot singing voice conversion* 🎶. Without any training, it is able to clone a voice given a reference speech of 1~30 seconds.  
+
+We support further fine-tuning on custom data to increase performance on specific speaker/speakers, with extremely low data requirement **(minimum 1 utterance per speaker)** and extremely fast training speed **(minimum 100 steps, 2 min on T4)**!
+
+**Real-time voice conversion** is support, with algorithm delay of ~300ms and device side delay of ~100ms, suitable for online meetings, gaming and live streaming.
+
+To find a list of demos and comparisons with previous voice conversion models, please visit our [demo page](https://plachtaa.github.io/seed-vc/)🌐  and [Evaluaiton](EVAL.md)📊.
+
+We are keeping on improving the model quality and adding more features.
 
 ## Evaluation📊
 See [EVAL.md](EVAL.md) for objective evaluation results and comparisons with other baselines.
